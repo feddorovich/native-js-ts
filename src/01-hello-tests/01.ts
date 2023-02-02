@@ -6,11 +6,13 @@ export function mult(a: number, b: number) {
     return a * b;
 }
 
-
-
-
 const sentense = "Hello my friend!";
 
 export function splitIntoWords(sentense: string) {
-    return ['hello', 'my', 'friend']
+    return sentense.toLowerCase().split(' ')
+        .filter(w => w !== '' && w !== '-')
+        .map(w => w
+            .replace('!','')
+            .replace('.','')
+            .replace(',',''))
 }
