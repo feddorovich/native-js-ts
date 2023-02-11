@@ -1,6 +1,6 @@
 import React from "react";
-import {student, StudentType} from "../02/02";
-import {GovermentBuildingType, HouseType} from "../02/02_02";
+import {student, StudentType} from "../02-obj/02";
+import {GovermentBuildingType, HouseType} from "../02-obj/02_02";
 
 export const sum = (a: number, b: number) => {
     return a + b;

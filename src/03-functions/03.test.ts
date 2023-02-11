@@ -1,5 +1,5 @@
 import React from "react";
-import {StudentType} from "../02/02";
+import {StudentType} from "../02-obj/02";
 import {addSkill, doesStudentLiveIn, makeStudentActive} from "./03";
 
 let student: StudentType;
