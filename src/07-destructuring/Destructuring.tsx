@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 type PropsType = {
     title: string
@@ -18,11 +18,16 @@ export type ManType = {
     }
 }
 
+function useHandMadeState (m: string) {
+    return [m, function(){}]
+}
+
 export const ManComponent: React.FC<PropsType>= ({title, man, ...props}) => {
 // ...props - это рест оператор. Он доьавляет все остальные пропсы, которые не были объявлены
 
 /*    const {title, man} = props    */
 
+    const [message, setMessage] = useHandMadeState('hello')
 
     return (
         <div>
