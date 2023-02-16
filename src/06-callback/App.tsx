@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import {User} from "./06-callback/06";
+import {User} from "./06";
 
 function App() {
   return (
     <div className="App">
-        Hello React
+        <User/>
     </div>
   );
 }
