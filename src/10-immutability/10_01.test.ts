@@ -2,7 +2,7 @@ import {
     addNewBooksToUser,
     makeHairstyle,
     moveUser,
-    moveUserToOtherHouse, removeBook, updateBook, updateCompanyTitle,
+    moveUserToOtherHouse, removeBook, updateBook, updateCompanyTitle, updateCompanyTitle2,
     upgrateUserLaptop,
     UserType,
     UserWithBooksType,
@@ -188,20 +188,8 @@ test('update company', () => {
 })
 
 test('update company', () => {
-    let user: UserWithLaptopType = {
-        name: 'Dimych',
-        hair: 32,
-        address: {
-            city: 'Minsk',
-            house: 12
-        },
-        laptop: {
-            title: 'Zenbook'
-        }
-    }
-
-    let companies: {
-        'Dimyzh' : [
+    let companies = {
+        'Dimych' : [
             {id: 1, title: 'E-PAM'},
             {id: 2, title: 'IT-INC'}
         ],
@@ -210,6 +198,9 @@ test('update company', () => {
         ]
     }
 
+    const copy = updateCompanyTitle2(companies, 'Dimych', 1, 'EPAM')
 
-
+    expect(copy['Dimych']).not.toBe(companies['Dimych'])
+    expect(copy['Artem']).toBe(companies['Artem'])
+    expect(copy['Dimych'][0].title).toBe('EPAM')
 })

@@ -15,8 +15,9 @@ export type UserWithLaptopType = UserType & {
 export type UserWithBooksType = UserType & {
     books: Array<string>
 }
+type CompanyType = { id: number, title: string };
 export type WithCompaniesType = {
-    companies: Array<{ id: number, title: string }>
+    companies: Array<CompanyType>
 }
 
 
@@ -84,9 +85,13 @@ export const updateCompanyTitle = (u: UserWithLaptopType & WithCompaniesType, co
     {...u, companies: u.companies.map( c => c.id === companyId ? {...c, title: newTitle} : c)}
 )
 
-export const updateCompanyTitle2 = (companies: any,
+export const updateCompanyTitle2 = (companies: {[key: string]: Array<CompanyType>},
                                     userName: string,
                                     companyId: number,
                                     newTitle: string) => {
 
+    let companyCopy = {...companies}
+    companyCopy[userName] = companyCopy[userName].map(c => c.id == companyId ? {...c, title: newTitle} : c)
+
+    return companyCopy
 }
